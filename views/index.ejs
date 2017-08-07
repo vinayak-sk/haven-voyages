@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Voyages</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  
+  <body>
+	<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand" >Shipment Voyages </div>
+          <div class="navbar-brand pull-right">Created for Heaven Technologies</div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div>
+      </div>
+	</div>
+  	
+  	<div class="container ">
+	    <div ng-app="voyages" ng-controller="voyageController">
+	    
+	    	<h3><span class="">Enter the Start and End dates for Voyage options</span></h3>
+		    
+		    <div class="padding-top-20px col-md-4">
+		    	<div class="row">
+			    	<div class="col-md-7">
+			    		<h4> Enter start date for Voyage </h4>
+			    	</div>
+			    	<div class="col-md-5">
+				    	<input ng-model="startDate" type="date" class="form-control"> 
+				    </div>
+			    </div>
+			    <div class="row">
+			    	<div class="col-md-7">
+			    		<h4> Enter end date for Voyage </h4>
+			    	</div>
+			    	<div class="col-md-5">
+				    	<input ng-model="endDate" type="date" class="form-control"> 
+				    </div>
+			    </div>
+			  	<div class="row padding-top-20px padding-left-15px">
+			  		<button type="button" class="btn btn-primary" ng-click="generateVoyages()">Display Voyages</button>
+				</div>
+				<div class="row padding-top-20px">
+					<div class="width-80">
+			    		<h4> Check for Trans Shipments </h4>
+			    		<input class="checkbox" type="checkbox" ng-model="transshipments">
+			  		</div>
+			  	</div>
+				
+			</div>
+			</br>
+			</br>
+			<div class="col-md-8 grey-border">
+			  	<div class="table-responsive">
+				  <table class="table">
+				  	<thead>
+				      <tr>
+				        <th>From</th>
+				        <th>To</th>
+				        <th>Vessel Name</th>
+				      </tr>
+				    </thead>
+				    
+				    <tbody>
+      					<tr ng-repeat="voyage in voyages track by $index">
+      						<td> {{voyage.startPort}} </td>
+      						<td> {{voyage.endPort}} </td>
+      						<td> {{voyage.vessel}} </td>
+      					</tr>
+      				</tbody>
+				  </table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!---- Body Container -->
+	
+	
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="javascript/angular/app.js"></script>
+  </body>
+  
+</html>
